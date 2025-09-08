@@ -6,6 +6,7 @@ public class PlayerMovementSystem : MonoBehaviour
     [Header("Required Dependencies")]
     public Animator PlayerAnimator;
     public CharacterController CharacterController;
+    public Transform CameraTransform;
 
     [Header("Reference Points")]
     public Transform FeetPoint;
@@ -34,9 +35,7 @@ public class PlayerMovementSystem : MonoBehaviour
     private float _animationMotionSpeedBlendTime;
 
     private void Start()
-    {
-        _fallTimeoutDelta = FallTimeout;
-    }
+        => _fallTimeoutDelta = FallTimeout;
 
     private void FixedUpdate()
     {
@@ -44,8 +43,11 @@ public class PlayerMovementSystem : MonoBehaviour
         GroundedChecks();
         GroundPlayer();
         CalculateJump();
-        Move();
+        MovePlayer();
+        RotatePlayer();
     }
+
+    #region <-------- Input Methods -------->
 
     public void InputMovement(Vector2 inputDirection)
         => _inputDirection = new Vector3(inputDirection.x, 0, inputDirection.y);
@@ -54,7 +56,14 @@ public class PlayerMovementSystem : MonoBehaviour
         => _canJump = true;
 
     public void InputSprint(bool isSprinting)
-        => _isSprinting = isSprinting;
+    {
+        _isSprinting = isSprinting;
+        Debug.Log("Sprinting: " + _isSprinting);
+    }
+
+    #endregion Input Methods
+
+    #region <-------- Vertical Movement Methods -------->
 
     public void CalculateJump()
     {
@@ -110,11 +119,24 @@ public class PlayerMovementSystem : MonoBehaviour
         }
     }
 
-    public void Move()
+    #endregion Vertical Movement Methods
+
+    public void MovePlayer()
     {
         var targetSpeed = _isSprinting ? SprintSpeed : MovementSpeed;
 
-        _finalMovement = _inputDirection * targetSpeed * Time.fixedDeltaTime;
+        var cameraForward = CameraTransform.forward;
+        cameraForward.y = 0;
+        cameraForward.Normalize();
+
+        var cameraRight = CameraTransform.right;
+        cameraRight.y = 0;
+        cameraRight.Normalize();
+
+        var moveDirection = cameraForward * _inputDirection.z + cameraRight * _inputDirection.x;
+        moveDirection.Normalize();
+
+        _finalMovement = moveDirection * targetSpeed * Time.fixedDeltaTime;
         _finalMovement.y = _verticalVelocity * Time.fixedDeltaTime;
         CharacterController.Move(_finalMovement);
 
@@ -129,6 +151,26 @@ public class PlayerMovementSystem : MonoBehaviour
             Time.fixedDeltaTime * 10f);
 
         PlayerAnimator.SetFloat(PlayerAnimationParams.MotionSpeed, _animationMotionSpeedBlendTime);
+    }
+
+    public void RotatePlayer()
+    {
+        if (_inputDirection.sqrMagnitude < 0.01f) return;
+
+        var cameraForward = CameraTransform.forward;
+        cameraForward.y = 0;
+        cameraForward.Normalize();
+
+        var cameraRight = CameraTransform.right;
+        cameraRight.y = 0;
+        cameraRight.Normalize();
+
+        var moveDirection = cameraForward * _inputDirection.z + cameraRight * _inputDirection.x;
+        if (moveDirection.sqrMagnitude > 0.01f)
+        {
+            var targetRotation = Quaternion.LookRotation(moveDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10f);
+        }
     }
 
     private void OnDrawGizmos()

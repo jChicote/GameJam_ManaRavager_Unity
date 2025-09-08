@@ -540,6 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSystem: {fileID: 744323505}
+  PlayerInput: {fileID: 744323503}
 --- !u!114 &744323503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,6 +607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerAnimator: {fileID: 744323504}
   CharacterController: {fileID: 744323498}
+  CameraTransform: {fileID: 1729299122}
   FeetPoint: {fileID: 2011400341}
   MovementSpeed: 1.5
   SprintSpeed: 3
@@ -1254,7 +1256,7 @@ MonoBehaviour:
   HorizontalAxis:
     Value: -0
     Center: -0
-    Range: {x: -60, y: 60}
+    Range: {x: -180, y: 180}
     Wrap: 0
     Recentering:
       Enabled: 1
