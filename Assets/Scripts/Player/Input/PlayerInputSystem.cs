@@ -12,4 +12,7 @@ public class PlayerInputSystem : MonoBehaviour
     private void OnJump(InputValue value)
         => MovementSystem.InputJump();
 
+    private void OnSprint(InputValue value)
+        => MovementSystem.InputSprint(value.isPressed);
+
 }

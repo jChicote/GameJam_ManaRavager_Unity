@@ -12,6 +12,7 @@ public class PlayerMovementSystem : MonoBehaviour
 
     [Header("Movement Fields")]
     public float MovementSpeed = 1f;
+    public float SprintSpeed = 1f;
 
     [Header("Vertical Fields")]
     public float FallTimeout = 1f;
@@ -25,10 +26,12 @@ public class PlayerMovementSystem : MonoBehaviour
     private Vector3 _inputDirection = Vector3.zero;
     private bool _canJump;
     private bool _isGrounded;
+    private bool _isSprinting;
     private float _fallTimeoutDelta;
     private Vector3 _finalMovement = Vector3.zero;
     private float _jumpTimeoutDelta;
     private float _verticalVelocity;
+    private float _animationMotionSpeedBlendTime;
 
     private void Start()
     {
@@ -49,6 +52,9 @@ public class PlayerMovementSystem : MonoBehaviour
 
     public void InputJump()
         => _canJump = true;
+
+    public void InputSprint(bool isSprinting)
+        => _isSprinting = isSprinting;
 
     public void CalculateJump()
     {
@@ -106,9 +112,23 @@ public class PlayerMovementSystem : MonoBehaviour
 
     public void Move()
     {
-        _finalMovement = _inputDirection * MovementSpeed * Time.fixedDeltaTime;
+        var targetSpeed = _isSprinting ? SprintSpeed : MovementSpeed;
+
+        _finalMovement = _inputDirection * targetSpeed * Time.fixedDeltaTime;
         _finalMovement.y = _verticalVelocity * Time.fixedDeltaTime;
         CharacterController.Move(_finalMovement);
+
+        var inputMagnitude = _inputDirection.magnitude;
+        var blendTarget = 0f;
+        if (inputMagnitude > 0.01f)
+            blendTarget = _isSprinting ? 1f : 0.5f;
+
+        _animationMotionSpeedBlendTime = Mathf.Lerp(
+            _animationMotionSpeedBlendTime,
+            blendTarget,
+            Time.fixedDeltaTime * 10f);
+
+        PlayerAnimator.SetFloat(PlayerAnimationParams.MotionSpeed, _animationMotionSpeedBlendTime);
     }
 
     private void OnDrawGizmos()
