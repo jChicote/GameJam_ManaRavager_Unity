@@ -1138,7 +1138,7 @@ MonoBehaviour:
   CameraTransform: {fileID: 1729299122}
   FeetPoint: {fileID: 2011400341}
   MovementSpeed: 1.5
-  SprintSpeed: 3
+  SprintSpeed: 4
   FallTimeout: 1
   Gravity: -9.81
   GroundedDetectionRadius: 0.3
