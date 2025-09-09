@@ -953,6 +953,7 @@ GameObject:
   - component: {fileID: 744323508}
   - component: {fileID: 744323506}
   - component: {fileID: 744323507}
+  - component: {fileID: 744323509}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1192,6 +1193,19 @@ MonoBehaviour:
   RightHandSocket: {fileID: 871310375}
   LeftHandSocket: {fileID: 816838310}
   SwordHolderSocket: {fileID: 52066124}
+--- !u!114 &744323509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744323497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594fb85ac900e475fa3b25c98794605a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
 --- !u!1 &759362355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,6 +2113,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1359606843}
+  - component: {fileID: 1359606845}
+  - component: {fileID: 1359606844}
   m_Layer: 5
   m_Name: GameHUD
   m_TagString: Untagged
@@ -2129,6 +2145,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1359606844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359606842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dee97d17b50f42e0882a4733896323f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  View: {fileID: 1359606845}
+  PlayerInstance: {fileID: 744323497}
+--- !u!114 &1359606845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359606842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f29f5139b024030ac1a2ffe5fe9f86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ContentGroup: {fileID: 0}
+  ComboText: {fileID: 682232455}
+  TotalScoreText: {fileID: 1024684618}
+  HealthBarSlider: {fileID: 352660866}
+  ManaBarSlider: {fileID: 283653396}
 --- !u!1 &1363964737
 GameObject:
   m_ObjectHideFlags: 0
