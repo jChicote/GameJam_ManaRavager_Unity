@@ -18,6 +18,7 @@ public class DebugCommandConfigurator
 
     public void ConfigureCommands()
     {
+        new Debug_PlayerMetricRandomizer().RegisterCommand(m_DebugManager);
     }
 
     #endregion Methods
