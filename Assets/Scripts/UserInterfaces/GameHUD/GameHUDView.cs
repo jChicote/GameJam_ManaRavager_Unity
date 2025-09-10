@@ -14,7 +14,13 @@ public class GameHudView : MonoBehaviour
     public void UpdateHealthBar(float currentHealth, float maxHealth)
         => HealthBarSlider.value = currentHealth / maxHealth;
 
-    public void UpdateManaBar(float currentMana, float maxMana)
-        => ManaBarSlider.value = currentMana / maxMana;
+    public void UpdateManaBar(float manaPercentage)
+        => ManaBarSlider.value = manaPercentage;
+
+    public void UpdateCombo(int combo)
+        => ComboText.text = combo.ToString();
+
+    public void UpdateTotalScore(int totalScore)
+        => TotalScoreText.text = totalScore.ToString();
 
 }
