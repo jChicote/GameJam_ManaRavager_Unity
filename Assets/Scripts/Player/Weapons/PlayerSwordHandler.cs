@@ -48,6 +48,8 @@ public class PlayerSwordHandler : MonoBehaviour
 
     public void ToggleSwordHandling()
     {
+        if (_currentSword == null) return;
+
         _isSwordDrawn = !_isSwordDrawn;
 
         if (_isSwordDrawn)
