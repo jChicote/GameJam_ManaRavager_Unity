@@ -12,10 +12,16 @@ public class PlayerHealthHandler : MonoBehaviour, ICharacterHealth, IDamageableH
 
     float ICharacterHealth.MaxHealth => MaxHealth;
 
-    private void Start()
-        => _currentHealth = MaxHealth;
-
     public event Action OnHealthChanged;
+
+    private void Start()
+    {
+        _currentHealth = MaxHealth;
+        OnHealthChanged?.Invoke();
+    }
+
+    private void OnBecameVisible()
+        => OnHealthChanged?.Invoke();
 
     public void AddDamage(float damageAmount)
     {
