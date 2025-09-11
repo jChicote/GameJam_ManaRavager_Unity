@@ -12,6 +12,11 @@ public class EnemySwordHandler : MonoBehaviour
     private bool _isSwordDrawn = false;
     private bool _isAttackInProgress;
 
+    private void Start()
+    {
+        EquipSword();
+    }
+
     public void AnimationEvent_EquipSword()
     {
         _currentSword.transform.SetParent(CharacterSockets.RightHandSocket);
@@ -39,6 +44,11 @@ public class EnemySwordHandler : MonoBehaviour
         _attackIndex = 1 - _attackIndex;
         EnemyAnimator.SetInteger(PlayerAnimationParams.SetAttackSelection, _attackIndex);
         EnemyAnimator.SetTrigger(PlayerAnimationParams.Attack);
+    }
+
+    public void EquipSword()
+    {
+        _currentSword = Instantiate(SwordAssetPrefab, CharacterSockets.SwordHolderSocket);
     }
 
     public void ToggleSwordHandling()
