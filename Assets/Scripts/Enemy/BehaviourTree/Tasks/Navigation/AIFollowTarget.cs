@@ -12,17 +12,20 @@ public class AIFollowTarget : Leaf
     public TransformReference FollowTarget = new TransformReference();
 
     private float _animationMotionSpeedBlendTime;
+    private float _maxSpeed;
+
+    private void Start()
+        => _maxSpeed = Agent.speed;
 
     public override NodeResult Execute()
     {
         Agent.SetDestination(FollowTarget.Value.position);
 
         var speed = Agent.velocity.magnitude;
-        var blendTarget = speed > 2.5f ? 1f : 0.5f;
 
         _animationMotionSpeedBlendTime = Mathf.Lerp(
             _animationMotionSpeedBlendTime,
-            blendTarget,
+            speed /_maxSpeed,
             Time.deltaTime * 10f);
 
         Animator.SetFloat(EnemyAnimationParams.MotionSpeed, _animationMotionSpeedBlendTime);
