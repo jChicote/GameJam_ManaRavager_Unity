@@ -890,6 +890,7 @@ GameObject:
   - component: {fileID: 841352454}
   - component: {fileID: 841352456}
   - component: {fileID: 841352457}
+  - component: {fileID: 841352458}
   m_Layer: 0
   m_Name: Blackboard
   m_TagString: Untagged
@@ -977,7 +978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 0}
+  selectedEditorNode: {fileID: 841352457}
   repeatOnFinish: 1
   maxExecutionsPerTick: 1000
   parent: {fileID: 0}
@@ -1020,6 +1021,7 @@ MonoBehaviour:
   parent: {fileID: 841352448}
   children:
   - {fileID: 841352457}
+  - {fileID: 841352458}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -1052,8 +1054,8 @@ MonoBehaviour:
   title: Follow And Keep Distance From Target
   rect:
     serializedVersion: 2
-    x: -300
-    y: 200
+    x: 60
+    y: 240
     width: 160
     height: 59
   parent: {fileID: 0}
@@ -1160,10 +1162,49 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
-  Agent: {fileID: 0}
+  Agent: {fileID: 294663947}
+  Animator: {fileID: 1595701108}
+  MaxMovementSpeed:
+    useConstant: 0
+    mode: 0
+    blackboard: {fileID: 841352450}
+    key: MaxMovementSpeed
+    constantValue: 0
   PatrolMovementRadius: 10
   ArrivalThreshold: 0.5
   ShowDebug: 1
+--- !u!114 &841352458
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841352442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58fe7bc6a9b18e148b82820c7c1c0a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: -320
+    y: 200
+    width: 160
+    height: 44
+  parent: {fileID: 841352452}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  time:
+    useConstant: 1
+    mode: 0
+    blackboard: {fileID: 0}
+    key: 
+    constantValue: 2
+  randomDeviation: 0
+  continueOnRestart: 0
 --- !u!4 &897358468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2198436715860292604, guid: 446cdee023e556d4288ffecf9d5c2cd4, type: 3}
