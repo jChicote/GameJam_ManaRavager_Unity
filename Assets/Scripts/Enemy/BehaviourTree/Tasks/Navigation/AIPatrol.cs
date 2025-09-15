@@ -8,13 +8,14 @@ using Vector3 = UnityEngine.Vector3;
 public class AIPatrol : Leaf
 {
 
+    [Header("References")]
     public NavMeshAgent Agent;
     public Animator Animator;
     public FloatReference MaxMovementSpeed = new FloatReference();
 
+    [Header("Settings")]
     public float PatrolMovementRadius = 10f;
     public float ArrivalThreshold = 0.5f;
-
     public bool ShowDebug = true;
 
     private bool _hasSelectedDestination;

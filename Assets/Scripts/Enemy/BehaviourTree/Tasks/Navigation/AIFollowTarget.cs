@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class AIFollowTarget : Leaf
 {
 
+    [Header("References")]
     public NavMeshAgent Agent;
     public Animator Animator;
     public TransformReference FollowTarget = new TransformReference();
