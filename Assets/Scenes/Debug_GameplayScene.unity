@@ -890,6 +890,11 @@ GameObject:
   - component: {fileID: 841352454}
   - component: {fileID: 841352456}
   - component: {fileID: 841352457}
+  - component: {fileID: 841352462}
+  - component: {fileID: 841352461}
+  - component: {fileID: 841352460}
+  - component: {fileID: 841352459}
+  - component: {fileID: 841352458}
   m_Layer: 0
   m_Name: Blackboard
   m_TagString: Untagged
@@ -960,8 +965,7 @@ MonoBehaviour:
     width: 160
     height: 44
   parent: {fileID: 0}
-  children:
-  - {fileID: 841352452}
+  children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -1013,11 +1017,11 @@ MonoBehaviour:
   title: Sequence
   rect:
     serializedVersion: 2
-    x: -320
+    x: -740
     y: 220
     width: 160
     height: 44
-  parent: {fileID: 841352448}
+  parent: {fileID: 0}
   children:
   - {fileID: 841352456}
   - {fileID: 841352457}
@@ -1053,11 +1057,11 @@ MonoBehaviour:
   title: Follow And Keep Distance From Target
   rect:
     serializedVersion: 2
-    x: 60
-    y: 240
+    x: -460
+    y: 280
     width: 160
     height: 59
-  parent: {fileID: 0}
+  parent: {fileID: 841352459}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
@@ -1107,8 +1111,8 @@ MonoBehaviour:
   title: Search For Player
   rect:
     serializedVersion: 2
-    x: -400
-    y: 300
+    x: -820
+    y: 280
     width: 160
     height: 44
   parent: {fileID: 841352452}
@@ -1153,8 +1157,8 @@ MonoBehaviour:
   title: AI Patrol
   rect:
     serializedVersion: 2
-    x: -220
-    y: 300
+    x: -640
+    y: 280
     width: 160
     height: 44
   parent: {fileID: 841352452}
@@ -1173,6 +1177,142 @@ MonoBehaviour:
   PatrolMovementRadius: 10
   ArrivalThreshold: 0.5
   ShowDebug: 1
+--- !u!114 &841352458
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841352442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57fc0177b4929484991a6f73e36c7211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Mana Push
+  rect:
+    serializedVersion: 2
+    x: -280
+    y: 280
+    width: 160
+    height: 44
+  parent: {fileID: 841352459}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  Animator: {fileID: 0}
+--- !u!114 &841352459
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841352442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08540605df275034fafc8e05c6704214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Selector
+  rect:
+    serializedVersion: 2
+    x: -345
+    y: 154.5
+    width: 160
+    height: 44
+  parent: {fileID: 0}
+  children:
+  - {fileID: 841352454}
+  - {fileID: 841352458}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &841352460
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841352442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58fe7bc6a9b18e148b82820c7c1c0a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Wait
+  rect:
+    serializedVersion: 2
+    x: 120
+    y: 280
+    width: 160
+    height: 44
+  parent: {fileID: 841352462}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  time:
+    useConstant: 1
+    mode: 0
+    blackboard: {fileID: 0}
+    key: 
+    constantValue: 2.5
+  randomDeviation: 0
+  continueOnRestart: 0
+--- !u!114 &841352461
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841352442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb00d0d2b9e5064d9c07bda4a4aab97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Conjure Shield
+  rect:
+    serializedVersion: 2
+    x: -80
+    y: 280
+    width: 160
+    height: 44
+  parent: {fileID: 841352462}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  Animator: {fileID: 0}
+--- !u!114 &841352462
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841352442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sequence
+  rect:
+    serializedVersion: 2
+    x: 0
+    y: 200
+    width: 160
+    height: 44
+  parent: {fileID: 0}
+  children:
+  - {fileID: 841352461}
+  - {fileID: 841352460}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
 --- !u!4 &897358468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2198436715860292604, guid: 446cdee023e556d4288ffecf9d5c2cd4, type: 3}

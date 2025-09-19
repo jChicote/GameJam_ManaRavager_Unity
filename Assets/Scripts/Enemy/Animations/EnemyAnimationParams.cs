@@ -11,5 +11,8 @@ public class EnemyAnimationParams
     public static readonly int SheathSword = Animator.StringToHash("SheathSword");
     public static readonly int SetAttackSelection = Animator.StringToHash("AttackSelection");
     public static readonly int Attack = Animator.StringToHash("Attack");
+    public static readonly int Summon = Animator.StringToHash("Summon");
+    public static readonly int Block = Animator.StringToHash("Block");
+    public static readonly int ManaPush = Animator.StringToHash("ManaPush");
 
 }

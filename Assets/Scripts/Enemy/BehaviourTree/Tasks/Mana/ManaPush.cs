@@ -2,8 +2,8 @@ using MBT;
 using UnityEngine;
 
 [AddComponentMenu("")]
-[MBTNode(name = "Tasks/Conjure Shield")]
-public class ConjureShield : Leaf
+[MBTNode(name = "Tasks/Mana Push")]
+public class ManaPush : Leaf
 {
 
     [Header("References")]
@@ -11,7 +11,7 @@ public class ConjureShield : Leaf
 
     public override NodeResult Execute()
     {
-        Animator.SetTrigger(EnemyAnimationParams.Block);
+        Animator.SetTrigger(EnemyAnimationParams.ManaPush);
         return NodeResult.success;
     }
 
