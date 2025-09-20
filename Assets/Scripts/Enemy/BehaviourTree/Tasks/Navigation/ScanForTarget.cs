@@ -10,6 +10,7 @@ public class ScanForTarget : Leaf
     [Header("References")]
     public TransformReference TargetTransform = new TransformReference();
     public TransformReference SelfTransform = new TransformReference();
+    public BoolReference IsEngaged = new BoolReference();
 
     [Header("Search Settings")]
     public float ViewLengthRadius = 10f;
@@ -35,7 +36,7 @@ public class ScanForTarget : Leaf
         if (_scanTimer > ScanTimeLength)
         {
             _scanTimer = 0f;
-            return NodeResult.failure;
+            return NodeResult.success;
         }
 
         if (isWithinViewRadius
@@ -43,6 +44,7 @@ public class ScanForTarget : Leaf
             && !Physics.Raycast(SelfTransform.Value.position + Vector3.forward * 1.5f, directionToTarget, distanceToTarget, TargetMask))
         {
             _scanTimer = 0f;
+            IsEngaged.Value = true;
             return NodeResult.success;
         }
 
