@@ -4,6 +4,7 @@ public class EnemyAnimationParams
 {
 
     public static readonly int IsGrounded = Animator.StringToHash("isGrounded");
+    public static readonly int IsSwordDrawn = Animator.StringToHash("IsSwordDrawn");
     public static readonly int Jump = Animator.StringToHash("canJump");
     public static readonly int FreeFall = Animator.StringToHash("isFreeFall");
     public static readonly int MotionSpeed = Animator.StringToHash("AnimationMotionSpeed");

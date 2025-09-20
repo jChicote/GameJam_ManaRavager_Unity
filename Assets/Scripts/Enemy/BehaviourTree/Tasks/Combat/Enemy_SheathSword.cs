@@ -10,7 +10,11 @@ public class Enemy_SheathWeapon : Leaf
 
     public override NodeResult Execute()
     {
+        if (!Animator.GetBool(EnemyAnimationParams.IsSwordDrawn))
+            return NodeResult.success;
+
         Animator.SetTrigger(EnemyAnimationParams.DrawSword);
+        Animator.SetBool(EnemyAnimationParams.IsSwordDrawn, false);
         return NodeResult.success;
     }
 

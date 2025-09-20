@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 294663947}
   - component: {fileID: 294663949}
   - component: {fileID: 294663948}
+  - component: {fileID: 294663950}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -316,6 +317,20 @@ MonoBehaviour:
   RightHandSocket: {fileID: 232924904}
   LeftHandSocket: {fileID: 1471114741}
   SwordHolderSocket: {fileID: 1745322241}
+--- !u!114 &294663950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294663942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20364e2091c46c84b9e8501a7511db72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlackBoard: {fileID: 841352450}
+  MaxHealth: 100
 --- !u!1 &449514991
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,6 +918,9 @@ GameObject:
   - component: {fileID: 841352469}
   - component: {fileID: 841352468}
   - component: {fileID: 841352467}
+  - component: {fileID: 841352475}
+  - component: {fileID: 841352474}
+  - component: {fileID: 841352473}
   m_Layer: 0
   m_Name: Blackboard
   m_TagString: Untagged
@@ -1012,6 +1030,8 @@ MonoBehaviour:
   - {fileID: 841352455}
   - {fileID: 841352464}
   - {fileID: 841352470}
+  - {fileID: 841352474}
+  - {fileID: 841352473}
   masterBlackboard: {fileID: 0}
 --- !u!114 &841352452
 MonoBehaviour:
@@ -1028,11 +1048,11 @@ MonoBehaviour:
   title: Sequence
   rect:
     serializedVersion: 2
-    x: 180
-    y: 160
+    x: 200
+    y: 100
     width: 160
     height: 44
-  parent: {fileID: 0}
+  parent: {fileID: 841352466}
   children:
   - {fileID: 841352456}
   - {fileID: 841352457}
@@ -1069,7 +1089,7 @@ MonoBehaviour:
   title: Follow And Keep Distance From Target
   rect:
     serializedVersion: 2
-    x: -960
+    x: -360
     y: 340
     width: 160
     height: 59
@@ -1123,8 +1143,8 @@ MonoBehaviour:
   title: Search For Player
   rect:
     serializedVersion: 2
-    x: 0
-    y: 280
+    x: 20
+    y: 180
     width: 160
     height: 44
   parent: {fileID: 841352452}
@@ -1169,8 +1189,8 @@ MonoBehaviour:
   title: AI Patrol
   rect:
     serializedVersion: 2
-    x: 180
-    y: 280
+    x: 200
+    y: 180
     width: 160
     height: 44
   parent: {fileID: 841352452}
@@ -1204,8 +1224,8 @@ MonoBehaviour:
   title: Mana Push
   rect:
     serializedVersion: 2
-    x: -680
-    y: 360
+    x: -800
+    y: 380
     width: 160
     height: 44
   parent: {fileID: 0}
@@ -1229,8 +1249,8 @@ MonoBehaviour:
   title: Wait
   rect:
     serializedVersion: 2
-    x: -260
-    y: 240
+    x: -1000
+    y: 260
     width: 160
     height: 44
   parent: {fileID: 841352462}
@@ -1261,8 +1281,8 @@ MonoBehaviour:
   title: Conjure Shield
   rect:
     serializedVersion: 2
-    x: -460
-    y: 240
+    x: -1180
+    y: 260
     width: 160
     height: 44
   parent: {fileID: 841352462}
@@ -1286,11 +1306,11 @@ MonoBehaviour:
   title: Sequence
   rect:
     serializedVersion: 2
-    x: -380
-    y: 160
+    x: -1100
+    y: 180
     width: 160
     height: 44
-  parent: {fileID: 0}
+  parent: {fileID: 841352475}
   children:
   - {fileID: 841352461}
   - {fileID: 841352460}
@@ -1313,11 +1333,11 @@ MonoBehaviour:
   title: Sequence
   rect:
     serializedVersion: 2
-    x: -800
+    x: -360
     y: 200
     width: 160
     height: 44
-  parent: {fileID: 0}
+  parent: {fileID: 841352465}
   children:
   - {fileID: 841352469}
   - {fileID: 841352454}
@@ -1351,15 +1371,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534e3ec7de6cd444e984c2e7f68e42e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Is Set Condition
+  title: Is Engaged
   rect:
     serializedVersion: 2
-    x: -760
-    y: 80
+    x: -360
+    y: 100
     width: 160
     height: 44
   parent: {fileID: 841352466}
-  children: []
+  children:
+  - {fileID: 841352463}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -1405,7 +1426,9 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 841352448}
   children:
+  - {fileID: 841352475}
   - {fileID: 841352465}
+  - {fileID: 841352452}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -1425,8 +1448,8 @@ MonoBehaviour:
   title: Enemy Sheath Weapon
   rect:
     serializedVersion: 2
-    x: 360
-    y: 340
+    x: 400
+    y: 240
     width: 160
     height: 44
   parent: {fileID: 841352468}
@@ -1434,7 +1457,7 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
-  Animator: {fileID: 0}
+  Animator: {fileID: 1595701108}
 --- !u!114 &841352468
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1447,11 +1470,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534e3ec7de6cd444e984c2e7f68e42e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Is Set Condition
+  title: Is Sword Drawn
   rect:
     serializedVersion: 2
-    x: 360
-    y: 280
+    x: 400
+    y: 180
     width: 160
     height: 44
   parent: {fileID: 841352452}
@@ -1493,10 +1516,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534e3ec7de6cd444e984c2e7f68e42e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Is Set Condition
+  title: Is Sword Drawn
   rect:
     serializedVersion: 2
-    x: -1160
+    x: -560
     y: 300
     width: 160
     height: 44
@@ -1507,7 +1530,7 @@ MonoBehaviour:
   runtimePriority: 0
   breakpoint: 0
   abort: 0
-  invert: 0
+  invert: 1
   type: 0
   boolReference:
     useConstant: 0
@@ -1556,7 +1579,7 @@ MonoBehaviour:
   title: Enemy Draw Weapon
   rect:
     serializedVersion: 2
-    x: -1160
+    x: -560
     y: 360
     width: 160
     height: 44
@@ -1565,7 +1588,87 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
-  Animator: {fileID: 0}
+  Animator: {fileID: 1595701108}
+--- !u!114 &841352473
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841352442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e5f4db414f0ab4c82c187a7653e99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: MaxHealth
+  val: 0
+--- !u!114 &841352474
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841352442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e5f4db414f0ab4c82c187a7653e99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: CurrentHealth
+  val: 0
+--- !u!114 &841352475
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841352442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b95a918be8d9a4f9085201010bdec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Number Condition
+  rect:
+    serializedVersion: 2
+    x: -1100
+    y: 100
+    width: 160
+    height: 44
+  parent: {fileID: 841352466}
+  children:
+  - {fileID: 841352462}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  abort: 0
+  type: 0
+  floatReference:
+    useConstant: 0
+    mode: 1
+    blackboard: {fileID: 841352450}
+    key: CurrentHealth
+    constantValue: 0
+  intReference:
+    useConstant: 0
+    mode: 1
+    blackboard: {fileID: 0}
+    key: 
+    constantValue: 0
+  comparator: 2
+  floatReference2:
+    useConstant: 1
+    mode: 0
+    blackboard: {fileID: 0}
+    key: 
+    constantValue: 30
+  intReference2:
+    useConstant: 1
+    mode: 0
+    blackboard: {fileID: 0}
+    key: 
+    constantValue: 0
 --- !u!4 &897358468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2198436715860292604, guid: 446cdee023e556d4288ffecf9d5c2cd4, type: 3}
