@@ -952,7 +952,6 @@ GameObject:
   - component: {fileID: 841352452}
   - component: {fileID: 841352455}
   - component: {fileID: 841352454}
-  - component: {fileID: 841352456}
   - component: {fileID: 841352457}
   - component: {fileID: 841352462}
   - component: {fileID: 841352461}
@@ -964,8 +963,6 @@ GameObject:
   - component: {fileID: 841352463}
   - component: {fileID: 841352471}
   - component: {fileID: 841352470}
-  - component: {fileID: 841352469}
-  - component: {fileID: 841352468}
   - component: {fileID: 841352467}
   - component: {fileID: 841352475}
   - component: {fileID: 841352474}
@@ -1058,7 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 0}
+  selectedEditorNode: {fileID: 841352467}
   repeatOnFinish: 1
   maxExecutionsPerTick: 1000
   parent: {fileID: 0}
@@ -1106,7 +1103,7 @@ MonoBehaviour:
   children:
   - {fileID: 841352476}
   - {fileID: 841352457}
-  - {fileID: 841352468}
+  - {fileID: 841352467}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -1178,58 +1175,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: MaxMovementSpeed
   val: 3.5
---- !u!114 &841352456
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 841352442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db6ca69c1bd379f4486a905252654892, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Search For Player
-  rect:
-    serializedVersion: 2
-    x: -80
-    y: 400
-    width: 160
-    height: 44
-  parent: {fileID: 0}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  TargetTransform:
-    useConstant: 0
-    mode: 0
-    blackboard: {fileID: 841352450}
-    key: FollowTarget
-    constantValue: {fileID: 0}
-  SelfTransform:
-    useConstant: 0
-    mode: 0
-    blackboard: {fileID: 841352450}
-    key: SelfTransform
-    constantValue: {fileID: 0}
-  IsEngaged:
-    useConstant: 0
-    mode: 0
-    blackboard: {fileID: 841352450}
-    key: IsEngaged
-    constantValue: 0
-  ViewLengthRadius: 10
-  ViewAngle: 90
-  TargetMask:
-    serializedVersion: 2
-    m_Bits: 128
-  ObstacleMask:
-    serializedVersion: 2
-    m_Bits: 0
-  ScanTimeLength: 3
-  ShowDebug: 1
 --- !u!114 &841352457
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1395,7 +1340,7 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 841352465}
   children:
-  - {fileID: 841352469}
+  - {fileID: 841352471}
   - {fileID: 841352454}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
@@ -1440,7 +1385,7 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
-  abort: 0
+  abort: 1
   invert: 0
   type: 0
   boolReference:
@@ -1504,108 +1449,17 @@ MonoBehaviour:
   title: Enemy Sheath Weapon
   rect:
     serializedVersion: 2
-    x: 400
-    y: 240
+    x: 380
+    y: 180
     width: 160
     height: 44
-  parent: {fileID: 841352468}
+  parent: {fileID: 841352452}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   Animator: {fileID: 294663952}
---- !u!114 &841352468
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 841352442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 534e3ec7de6cd444e984c2e7f68e42e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Is Sword Drawn
-  rect:
-    serializedVersion: 2
-    x: 400
-    y: 180
-    width: 160
-    height: 44
-  parent: {fileID: 841352452}
-  children:
-  - {fileID: 841352467}
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  abort: 0
-  invert: 1
-  type: 0
-  boolReference:
-    useConstant: 0
-    mode: 1
-    blackboard: {fileID: 841352450}
-    key: IsSwordDrawn
-    constantValue: 0
-  objectReference:
-    useConstant: 0
-    mode: 1
-    blackboard: {fileID: 0}
-    key: 
-    constantValue: {fileID: 0}
-  transformReference:
-    useConstant: 0
-    mode: 1
-    blackboard: {fileID: 0}
-    key: 
-    constantValue: {fileID: 0}
---- !u!114 &841352469
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 841352442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 534e3ec7de6cd444e984c2e7f68e42e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Is Sword Drawn
-  rect:
-    serializedVersion: 2
-    x: -560
-    y: 300
-    width: 160
-    height: 44
-  parent: {fileID: 841352463}
-  children:
-  - {fileID: 841352471}
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  abort: 0
-  invert: 1
-  type: 0
-  boolReference:
-    useConstant: 0
-    mode: 1
-    blackboard: {fileID: 841352450}
-    key: IsSwordDrawn
-    constantValue: 0
-  objectReference:
-    useConstant: 0
-    mode: 1
-    blackboard: {fileID: 0}
-    key: 
-    constantValue: {fileID: 0}
-  transformReference:
-    useConstant: 0
-    mode: 1
-    blackboard: {fileID: 0}
-    key: 
-    constantValue: {fileID: 0}
+  SwordHandler: {fileID: 294663948}
 --- !u!114 &841352470
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1639,12 +1493,13 @@ MonoBehaviour:
     y: 360
     width: 160
     height: 44
-  parent: {fileID: 841352469}
+  parent: {fileID: 841352463}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   Animator: {fileID: 294663952}
+  SwordHandler: {fileID: 294663948}
 --- !u!114 &841352473
 MonoBehaviour:
   m_ObjectHideFlags: 2

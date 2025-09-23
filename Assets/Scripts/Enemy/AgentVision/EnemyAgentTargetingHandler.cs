@@ -32,20 +32,19 @@ public class EnemyAgentTargetingHandler : MonoBehaviour
         var directionToTarget = (FollowTarget.position - transform.position).normalized;
         var distanceToTarget = Vector3.Distance(transform.position, FollowTarget.position);
 
-        if (_currentLastTimeSeen > ViewLockExitTimeLength)
-        {
-            _currentLastTimeSeen = 0f;
-            _isEngaged.Value = false;
-            return;
-        }
-
         if (distanceToTarget > ViewLengthRadius)
         {
             _currentLastTimeSeen += Time.deltaTime;
+
+            Debug.Log(_currentLastTimeSeen);
+            if (_currentLastTimeSeen > ViewLockExitTimeLength)
+            {
+                _currentLastTimeSeen = 0f;
+                _isEngaged.Value = false;
+            }
             return;
         }
-        else
-            _currentLastTimeSeen = 0f;
+        _currentLastTimeSeen = 0f;
 
         var angle = Vector3.Angle(transform.forward, directionToTarget);
         var isWithinViewAngle = angle <= ViewAngle / 2f;

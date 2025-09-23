@@ -42,8 +42,8 @@ public class EnemySwordHandler : MonoBehaviour
         if (_currentSword == null || !_isSwordDrawn || _isAttackInProgress) return;
 
         _attackIndex = 1 - _attackIndex;
-        EnemyAnimator.SetInteger(PlayerAnimationParams.SetAttackSelection, _attackIndex);
-        EnemyAnimator.SetTrigger(PlayerAnimationParams.Attack);
+        EnemyAnimator.SetInteger(EnemyAnimationParams.SetAttackSelection, _attackIndex);
+        EnemyAnimator.SetTrigger(EnemyAnimationParams.Attack);
     }
 
     public void EquipSword()
@@ -51,26 +51,18 @@ public class EnemySwordHandler : MonoBehaviour
         _currentSword = Instantiate(SwordAssetPrefab, CharacterSockets.SwordHolderSocket);
     }
 
-    public void ToggleSwordHandling()
+    public void DrawSword()
     {
-        if (_currentSword == null) return;
-
-        _isSwordDrawn = !_isSwordDrawn;
-
-        if (_isSwordDrawn)
-            DrawSword();
-        else
-            SheathSword();
+        EnemyAnimator.SetTrigger(EnemyAnimationParams.DrawSword);
+        EnemyAnimator.SetBool(EnemyAnimationParams.IsSwordDrawn, true);
+        _isSwordDrawn = true;
     }
 
-    private void DrawSword()
+    public void SheathSword()
     {
-        EnemyAnimator.SetTrigger(PlayerAnimationParams.DrawSword);
-    }
-
-    private void SheathSword()
-    {
-        EnemyAnimator.SetTrigger(PlayerAnimationParams.SheathSword);
+        EnemyAnimator.SetTrigger(EnemyAnimationParams.SheathSword);
+        EnemyAnimator.SetBool(EnemyAnimationParams.IsSwordDrawn, false);
+        _isSwordDrawn = false;
     }
 
 }
