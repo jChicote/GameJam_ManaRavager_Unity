@@ -22,6 +22,8 @@ public class EnemyAgentTargetingHandler : MonoBehaviour
     private BoolVariable _isEngaged;
     private float _currentLastTimeSeen;
 
+    public Transform CurrentTarget => FollowTarget;
+
     private void Start()
     {
         _isEngaged = Blackboard.GetVariable<BoolVariable>("IsEngaged");

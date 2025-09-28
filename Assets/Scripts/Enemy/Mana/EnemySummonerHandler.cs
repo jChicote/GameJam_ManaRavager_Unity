@@ -6,6 +6,7 @@ public class EnemySummonerHandler : MonoBehaviour
 {
 
     [Header("References")]
+    public EnemyAgentTargetingHandler TargetingHandler;
     public EnemyManaHandler ManaHandler;
     public NavMeshAgent Agent;
     public GameObject PawnPrefab;
@@ -33,6 +34,9 @@ public class EnemySummonerHandler : MonoBehaviour
         {
             var spawnPosition = GetRandomPointOnNavMesh(_selectedDestination, SpawnRadius);
             var spawnedPawn = Instantiate(PawnPrefab, spawnPosition, Quaternion.identity);
+
+            var pawnTargetingSystem = spawnedPawn.GetComponent<ITargetingSystem>();
+            pawnTargetingSystem.CurrentTarget = TargetingHandler.CurrentTarget;
 
             SpawnedPawns.Add(spawnedPawn);
             ManaHandler.UseMana(PawnSpawnCost);
