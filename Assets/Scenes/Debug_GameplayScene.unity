@@ -398,8 +398,8 @@ MonoBehaviour:
   Agent: {fileID: 294663947}
   SummoningRadius: 15
   SpawnRadius: 5
-  MaxSpawnCount: 6
-  PawnSpawnCost: 5
+  MaxSpawnCount: 3
+  PawnSpawnCost: 12
   PawnPrefab: {fileID: 5666048243379173186, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
   SpawnedPawns: []
 --- !u!114 &294663954
@@ -860,7 +860,6 @@ GameObject:
   - component: {fileID: 841352462}
   - component: {fileID: 841352461}
   - component: {fileID: 841352460}
-  - component: {fileID: 841352458}
   - component: {fileID: 841352466}
   - component: {fileID: 841352465}
   - component: {fileID: 841352464}
@@ -876,6 +875,7 @@ GameObject:
   - component: {fileID: 841352478}
   - component: {fileID: 841352479}
   - component: {fileID: 841352480}
+  - component: {fileID: 841352481}
   m_Layer: 0
   m_Name: Blackboard
   m_TagString: Untagged
@@ -963,7 +963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 0}
+  selectedEditorNode: {fileID: 841352481}
   repeatOnFinish: 1
   maxExecutionsPerTick: 1000
   parent: {fileID: 0}
@@ -1118,31 +1118,6 @@ MonoBehaviour:
   PatrolMovementRadius: 10
   ArrivalThreshold: 0.5
   ShowDebug: 1
---- !u!114 &841352458
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 841352442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57fc0177b4929484991a6f73e36c7211, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Mana Push
-  rect:
-    serializedVersion: 2
-    x: -1000
-    y: 440
-    width: 160
-    height: 44
-  parent: {fileID: 0}
-  children: []
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  Animator: {fileID: 0}
 --- !u!114 &841352460
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1538,10 +1513,10 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: -60
-    y: 420
+    y: 520
     width: 160
     height: 44
-  parent: {fileID: 841352478}
+  parent: {fileID: 841352481}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
@@ -1568,13 +1543,12 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 841352463}
   children:
-  - {fileID: 841352477}
+  - {fileID: 841352481}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
   ManaHandler: {fileID: 294663954}
   SummonerHandler: {fileID: 294663953}
-  Cooldown: 3
 --- !u!114 &841352479
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1657,6 +1631,32 @@ MonoBehaviour:
     blackboard: {fileID: 841352450}
     key: SelfTransform
     constantValue: {fileID: 0}
+--- !u!114 &841352481
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841352442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1c35363376bd14f90f695a30e873b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Custom Cooldown
+  rect:
+    serializedVersion: 2
+    x: -60
+    y: 460
+    width: 160
+    height: 44
+  parent: {fileID: 841352478}
+  children:
+  - {fileID: 841352477}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  CooldownTime: 3
 --- !u!4 &897358468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2198436715860292604, guid: 446cdee023e556d4288ffecf9d5c2cd4, type: 3}

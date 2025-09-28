@@ -5,16 +5,18 @@ using UnityEngine.AI;
 public class EnemySummonerHandler : MonoBehaviour
 {
 
+    [Header("References")]
     public EnemyManaHandler ManaHandler;
     public NavMeshAgent Agent;
+    public GameObject PawnPrefab;
+
+    [Header("Settings")]
     public float SummoningRadius = 15f;
     public float SpawnRadius = 5f;
     public int MaxSpawnCount = 6;
-
     public float PawnSpawnCost = 0.5f;
-    public GameObject PawnPrefab;
-    public List<GameObject> SpawnedPawns = new List<GameObject>();
 
+    private List<GameObject> SpawnedPawns = new List<GameObject>();
     private Vector3 _selectedDestination = Vector3.zero;
 
     public void SummonPawns()
@@ -24,7 +26,7 @@ public class EnemySummonerHandler : MonoBehaviour
 
         // Spawn variable size of pawns
         var calculatedSpawnCount = ManaHandler.CurrentMana >= PawnSpawnCost
-            ? Mathf.FloorToInt(ManaHandler.CurrentMana / PawnSpawnCost)
+            ? Mathf.Clamp(Mathf.FloorToInt(ManaHandler.CurrentMana / PawnSpawnCost), 1, MaxSpawnCount)
             : 0;
 
         for (int i = 0; i < calculatedSpawnCount; i++)
@@ -45,6 +47,18 @@ public class EnemySummonerHandler : MonoBehaviour
             return navHit.position;
 
         return Agent.transform.position;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(_selectedDestination, SpawnRadius);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(Agent.transform.position, SummoningRadius);
     }
 
 }
