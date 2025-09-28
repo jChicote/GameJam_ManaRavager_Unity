@@ -6,16 +6,17 @@ using UnityEngine;
 public class CanSummonGroup : Condition
 {
 
+    public EnemyManaHandler ManaHandler;
+    public EnemySummonerHandler SummonerHandler;
     public float Cooldown = 3;
 
     private float _nextAllowedTime = 0f;
 
-
     public override bool Check()
     {
-        // Check whether owner has enough mana to spare
+        if (ManaHandler.CurrentMana < SummonerHandler.PawnSpawnCost)
+            return false;
 
-        // Check whether next pawn group can be summoned after cooldown
         if (Time.time < _nextAllowedTime)
             return false;
 

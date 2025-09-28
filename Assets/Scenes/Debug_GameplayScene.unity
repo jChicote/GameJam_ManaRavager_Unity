@@ -874,6 +874,8 @@ GameObject:
   - component: {fileID: 841352476}
   - component: {fileID: 841352477}
   - component: {fileID: 841352478}
+  - component: {fileID: 841352479}
+  - component: {fileID: 841352480}
   m_Layer: 0
   m_Name: Blackboard
   m_TagString: Untagged
@@ -961,7 +963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 841352478}
+  selectedEditorNode: {fileID: 0}
   repeatOnFinish: 1
   maxExecutionsPerTick: 1000
   parent: {fileID: 0}
@@ -1002,10 +1004,10 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 200
-    y: 100
+    y: 160
     width: 160
     height: 44
-  parent: {fileID: 841352466}
+  parent: {fileID: 841352479}
   children:
   - {fileID: 841352476}
   - {fileID: 841352457}
@@ -1042,8 +1044,8 @@ MonoBehaviour:
   title: Follow And Keep Distance From Target
   rect:
     serializedVersion: 2
-    x: -360
-    y: 340
+    x: -420
+    y: 360
     width: 160
     height: 59
   parent: {fileID: 841352463}
@@ -1097,7 +1099,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 200
-    y: 180
+    y: 240
     width: 160
     height: 44
   parent: {fileID: 841352452}
@@ -1131,8 +1133,8 @@ MonoBehaviour:
   title: Mana Push
   rect:
     serializedVersion: 2
-    x: -800
-    y: 380
+    x: -1000
+    y: 440
     width: 160
     height: 44
   parent: {fileID: 0}
@@ -1156,7 +1158,7 @@ MonoBehaviour:
   title: Wait
   rect:
     serializedVersion: 2
-    x: -1000
+    x: -880
     y: 260
     width: 160
     height: 44
@@ -1188,7 +1190,7 @@ MonoBehaviour:
   title: Conjure Shield
   rect:
     serializedVersion: 2
-    x: -1180
+    x: -1060
     y: 260
     width: 160
     height: 44
@@ -1213,7 +1215,7 @@ MonoBehaviour:
   title: Sequence
   rect:
     serializedVersion: 2
-    x: -1100
+    x: -980
     y: 180
     width: 160
     height: 44
@@ -1248,6 +1250,7 @@ MonoBehaviour:
   children:
   - {fileID: 841352471}
   - {fileID: 841352454}
+  - {fileID: 841352480}
   - {fileID: 841352478}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
@@ -1336,7 +1339,7 @@ MonoBehaviour:
   children:
   - {fileID: 841352475}
   - {fileID: 841352465}
-  - {fileID: 841352452}
+  - {fileID: 841352479}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -1357,7 +1360,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 380
-    y: 180
+    y: 240
     width: 160
     height: 44
   parent: {fileID: 841352452}
@@ -1396,7 +1399,7 @@ MonoBehaviour:
   title: Enemy Draw Weapon
   rect:
     serializedVersion: 2
-    x: -560
+    x: -600
     y: 360
     width: 160
     height: 44
@@ -1450,7 +1453,7 @@ MonoBehaviour:
   title: Number Condition
   rect:
     serializedVersion: 2
-    x: -1100
+    x: -980
     y: 100
     width: 160
     height: 44
@@ -1503,7 +1506,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 20
-    y: 180
+    y: 240
     width: 160
     height: 44
   parent: {fileID: 841352452}
@@ -1534,7 +1537,7 @@ MonoBehaviour:
   title: Summon Pawn Group
   rect:
     serializedVersion: 2
-    x: -160
+    x: -60
     y: 420
     width: 160
     height: 44
@@ -1559,8 +1562,8 @@ MonoBehaviour:
   title: Can Summon Group
   rect:
     serializedVersion: 2
-    x: -160
-    y: 340
+    x: -60
+    y: 360
     width: 160
     height: 44
   parent: {fileID: 841352463}
@@ -1569,7 +1572,91 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
+  ManaHandler: {fileID: 294663954}
+  SummonerHandler: {fileID: 294663953}
   Cooldown: 3
+--- !u!114 &841352479
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841352442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 534e3ec7de6cd444e984c2e7f68e42e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Is Not Engaged
+  rect:
+    serializedVersion: 2
+    x: 200
+    y: 100
+    width: 160
+    height: 44
+  parent: {fileID: 841352466}
+  children:
+  - {fileID: 841352452}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  abort: 1
+  invert: 1
+  type: 0
+  boolReference:
+    useConstant: 0
+    mode: 1
+    blackboard: {fileID: 841352450}
+    key: IsEngaged
+    constantValue: 0
+  objectReference:
+    useConstant: 0
+    mode: 1
+    blackboard: {fileID: 0}
+    key: 
+    constantValue: {fileID: 0}
+  transformReference:
+    useConstant: 0
+    mode: 1
+    blackboard: {fileID: 0}
+    key: 
+    constantValue: {fileID: 0}
+--- !u!114 &841352480
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841352442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4106e2cc05caedb468613caa4bc03bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Face Towards Target
+  rect:
+    serializedVersion: 2
+    x: -240
+    y: 360
+    width: 160
+    height: 44
+  parent: {fileID: 841352463}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  FollowTarget:
+    useConstant: 0
+    mode: 0
+    blackboard: {fileID: 841352450}
+    key: FollowTarget
+    constantValue: {fileID: 0}
+  SelfTransform:
+    useConstant: 0
+    mode: 0
+    blackboard: {fileID: 841352450}
+    key: SelfTransform
+    constantValue: {fileID: 0}
 --- !u!4 &897358468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2198436715860292604, guid: 446cdee023e556d4288ffecf9d5c2cd4, type: 3}
