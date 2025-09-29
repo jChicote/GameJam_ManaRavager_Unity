@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 5090188574869144344}
   - component: {fileID: 5400790885298165236}
   - component: {fileID: 6709909440505998670}
+  - component: {fileID: 662138807914295005}
   m_Layer: 0
   m_Name: Blackboard
   m_TagString: Untagged
@@ -107,6 +108,7 @@ MonoBehaviour:
   - {fileID: 8125291994405947479}
   - {fileID: 3969814142439816967}
   - {fileID: 2954726009385352486}
+  - {fileID: 662138807914295005}
   masterBlackboard: {fileID: 0}
 --- !u!114 &8031830758829094727
 MonoBehaviour:
@@ -120,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 5737805368979232021}
+  selectedEditorNode: {fileID: 0}
   repeatOnFinish: 1
   maxExecutionsPerTick: 1000
   parent: {fileID: 0}
@@ -226,9 +228,9 @@ MonoBehaviour:
   parent: {fileID: 6482843462991767990}
   children:
   - {fileID: 5400790885298165236}
-  - {fileID: 2773835559742808772}
   - {fileID: 6709909440505998670}
   - {fileID: 5090188574869144344}
+  - {fileID: 2773835559742808772}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -273,8 +275,8 @@ MonoBehaviour:
   title: Follow And Keep Distance From Target
   rect:
     serializedVersion: 2
-    x: 540
-    y: 646
+    x: 900
+    y: 640
     width: 160
     height: 59
   parent: {fileID: 2017210433740021885}
@@ -327,8 +329,8 @@ MonoBehaviour:
   title: Attack Target
   rect:
     serializedVersion: 2
-    x: 900
-    y: 700
+    x: 720
+    y: 800
     width: 160
     height: 44
   parent: {fileID: 5090188574869144344}
@@ -372,8 +374,8 @@ MonoBehaviour:
   title: Custom Cooldown
   rect:
     serializedVersion: 2
-    x: 900
-    y: 640
+    x: 720
+    y: 740
     width: 160
     height: 44
   parent: {fileID: 2017210433740021885}
@@ -424,7 +426,7 @@ MonoBehaviour:
   title: Face Towards Target
   rect:
     serializedVersion: 2
-    x: 720
+    x: 540
     y: 640
     width: 160
     height: 44
@@ -445,6 +447,20 @@ MonoBehaviour:
     blackboard: {fileID: 5449071909062779123}
     key: SelfTransform
     constantValue: {fileID: 0}
+--- !u!114 &662138807914295005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906434478778737171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e5f4db414f0ab4c82c187a7653e99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: AttackRange
+  val: 0
 --- !u!1 &5666048243379173186
 GameObject:
   m_ObjectHideFlags: 0

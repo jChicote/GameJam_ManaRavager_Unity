@@ -3401,17 +3401,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2773835559742808772, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
+      propertyPath: rect.x
+      value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773835559742808772, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
+      propertyPath: rect.y
+      value: 639
+      objectReference: {fileID: 0}
     - target: {fileID: 3969814142439816967, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
       propertyPath: val
       value: 
       objectReference: {fileID: 1272041199}
+    - target: {fileID: 5090188574869144344, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
+      propertyPath: rect.x
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090188574869144344, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
+      propertyPath: rect.y
+      value: 640
+      objectReference: {fileID: 0}
     - target: {fileID: 5666048243379173186, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
       propertyPath: m_Name
       value: Pawn
       objectReference: {fileID: 0}
-    - target: {fileID: 5666048243379173186, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 5737805368979232021, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
+      propertyPath: rect.x
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737805368979232021, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
+      propertyPath: rect.y
+      value: 700
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
