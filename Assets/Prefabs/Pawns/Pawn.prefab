@@ -53,10 +53,14 @@ GameObject:
   - component: {fileID: 2773835559742808772}
   - component: {fileID: 2954726009385352486}
   - component: {fileID: 5737805368979232021}
-  - component: {fileID: 5090188574869144344}
   - component: {fileID: 5400790885298165236}
   - component: {fileID: 6709909440505998670}
   - component: {fileID: 662138807914295005}
+  - component: {fileID: 1339825191197124359}
+  - component: {fileID: 3411022642462321419}
+  - component: {fileID: 5585229653409371759}
+  - component: {fileID: 3793040443397090307}
+  - component: {fileID: 1135877629852082134}
   m_Layer: 0
   m_Name: Blackboard
   m_TagString: Untagged
@@ -200,8 +204,10 @@ MonoBehaviour:
     height: 44
   parent: {fileID: 2226718836001649024}
   children:
+  - {fileID: 5585229653409371759}
   - {fileID: 2017210433740021885}
   - {fileID: 5198372038984521912}
+  - {fileID: 0}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -221,16 +227,15 @@ MonoBehaviour:
   title: Combat Sequence
   rect:
     serializedVersion: 2
-    x: 600
-    y: 540
+    x: 700
+    y: 620
     width: 160
     height: 44
   parent: {fileID: 6482843462991767990}
   children:
   - {fileID: 5400790885298165236}
   - {fileID: 6709909440505998670}
-  - {fileID: 5090188574869144344}
-  - {fileID: 2773835559742808772}
+  - {fileID: 1339825191197124359}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -275,11 +280,11 @@ MonoBehaviour:
   title: Follow And Keep Distance From Target
   rect:
     serializedVersion: 2
-    x: 900
-    y: 640
+    x: 280
+    y: 660
     width: 160
     height: 59
-  parent: {fileID: 2017210433740021885}
+  parent: {fileID: 0}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
@@ -329,15 +334,17 @@ MonoBehaviour:
   title: Attack Target
   rect:
     serializedVersion: 2
-    x: 720
-    y: 800
+    x: 880
+    y: 760
     width: 160
     height: 44
-  parent: {fileID: 5090188574869144344}
+  parent: {fileID: 1339825191197124359}
   children: []
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
+  Agent: {fileID: 8883415634566635027}
+  Animator: {fileID: 3445243663056705129}
   TargetTransform:
     useConstant: 0
     mode: 0
@@ -357,34 +364,8 @@ MonoBehaviour:
     key: MaxMovementSpeed
     constantValue: 0
   SwordHandler: {fileID: 772036889143838113}
-  DesiredDistance: 2.5
+  DesiredDistance: 0.6
   ErrorTolerance: 0.5
---- !u!114 &5090188574869144344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4906434478778737171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b1c35363376bd14f90f695a30e873b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Custom Cooldown
-  rect:
-    serializedVersion: 2
-    x: 720
-    y: 740
-    width: 160
-    height: 44
-  parent: {fileID: 2017210433740021885}
-  children:
-  - {fileID: 5737805368979232021}
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  CooldownTime: 1
 --- !u!114 &5400790885298165236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,8 +381,8 @@ MonoBehaviour:
   title: Pawn Draw Sword
   rect:
     serializedVersion: 2
-    x: 360
-    y: 637
+    x: 540
+    y: 700
     width: 160
     height: 44
   parent: {fileID: 2017210433740021885}
@@ -426,8 +407,8 @@ MonoBehaviour:
   title: Face Towards Target
   rect:
     serializedVersion: 2
-    x: 540
-    y: 640
+    x: 700
+    y: 700
     width: 160
     height: 44
   parent: {fileID: 2017210433740021885}
@@ -461,6 +442,190 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: AttackRange
   val: 0
+--- !u!114 &1339825191197124359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906434478778737171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2370820ab6f42c8449d09456ac02d66d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Cooldown
+  rect:
+    serializedVersion: 2
+    x: 880
+    y: 700
+    width: 160
+    height: 44
+  parent: {fileID: 2017210433740021885}
+  children:
+  - {fileID: 5737805368979232021}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  abort: 1
+  time:
+    useConstant: 1
+    mode: 0
+    blackboard: {fileID: 0}
+    key: 
+    constantValue: 1
+  resetOnChildFailure: 0
+--- !u!114 &3411022642462321419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906434478778737171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Travel Sequence
+  rect:
+    serializedVersion: 2
+    x: 200
+    y: 580
+    width: 160
+    height: 44
+  parent: {fileID: 5585229653409371759}
+  children:
+  - {fileID: 3793040443397090307}
+  - {fileID: 2773835559742808772}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &5585229653409371759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906434478778737171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb0b7cfe3e9cfba47a378c725cf5d0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Is Outside Range
+  rect:
+    serializedVersion: 2
+    x: 200
+    y: 520
+    width: 160
+    height: 44
+  parent: {fileID: 6482843462991767990}
+  children:
+  - {fileID: 3411022642462321419}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  comparator: 0
+  distance:
+    useConstant: 1
+    mode: 0
+    blackboard: {fileID: 0}
+    key: 
+    constantValue: 2.5
+  transform1:
+    useConstant: 0
+    mode: 0
+    blackboard: {fileID: 5449071909062779123}
+    key: SelfTransform
+    constantValue: {fileID: 0}
+  transform2:
+    useConstant: 0
+    mode: 0
+    blackboard: {fileID: 5449071909062779123}
+    key: FollowTransform
+    constantValue: {fileID: 0}
+--- !u!114 &3793040443397090307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906434478778737171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4106e2cc05caedb468613caa4bc03bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Face Towards Target
+  rect:
+    serializedVersion: 2
+    x: 120
+    y: 660
+    width: 160
+    height: 44
+  parent: {fileID: 3411022642462321419}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  FollowTarget:
+    useConstant: 0
+    mode: 0
+    blackboard: {fileID: 5449071909062779123}
+    key: FollowTransform
+    constantValue: {fileID: 0}
+  SelfTransform:
+    useConstant: 0
+    mode: 0
+    blackboard: {fileID: 5449071909062779123}
+    key: SelfTransform
+    constantValue: {fileID: 0}
+--- !u!114 &1135877629852082134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906434478778737171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb0b7cfe3e9cfba47a378c725cf5d0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Is Within Range
+  rect:
+    serializedVersion: 2
+    x: 700
+    y: 540
+    width: 160
+    height: 44
+  parent: {fileID: 6482843462991767990}
+  children:
+  - {fileID: 2017210433740021885}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  comparator: 1
+  distance:
+    useConstant: 1
+    mode: 0
+    blackboard: {fileID: 0}
+    key: 
+    constantValue: 2.5
+  transform1:
+    useConstant: 0
+    mode: 0
+    blackboard: {fileID: 5449071909062779123}
+    key: SelfTransform
+    constantValue: {fileID: 0}
+  transform2:
+    useConstant: 0
+    mode: 0
+    blackboard: {fileID: 5449071909062779123}
+    key: FollowTransform
+    constantValue: {fileID: 0}
 --- !u!1 &5666048243379173186
 GameObject:
   m_ObjectHideFlags: 0
