@@ -1,5 +1,4 @@
 using MBT;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -26,23 +25,23 @@ public class AttackTarget : Leaf
         var direction = transform.position - TargetTransform.Value.position;
         var distance = direction.magnitude;
 
-        if (distance > DesiredDistance + ErrorTolerance)
-        {
-            SelfTransform.Value.position = Vector3.MoveTowards(
-                SelfTransform.Value.position,
-                TargetTransform.Value.position,
-                MovementSpeed.Value * Time.deltaTime);
+        //if (distance > DesiredDistance + ErrorTolerance)
+        //{
+        //    SelfTransform.Value.position = Vector3.MoveTowards(
+        //        SelfTransform.Value.position,
+        //        TargetTransform.Value.position,
+        //        MovementSpeed.Value * Time.deltaTime);
 
-            // Move to target
-            _animationMotionSpeedBlendTime = Mathf.Lerp(
-                _animationMotionSpeedBlendTime,
-                Agent.velocity.magnitude / MovementSpeed.Value,
-                Time.deltaTime * 10f);
+        //    // Move to target
+        //    _animationMotionSpeedBlendTime = Mathf.Lerp(
+        //        _animationMotionSpeedBlendTime,
+        //        Agent.velocity.magnitude / MovementSpeed.Value,
+        //        Time.deltaTime * 10f);
 
-            Animator.SetFloat(EnemyAnimationParams.MotionSpeed, _animationMotionSpeedBlendTime);
+        //    Animator.SetFloat(EnemyAnimationParams.MotionSpeed, _animationMotionSpeedBlendTime);
 
-            return NodeResult.success;
-        }
+        //    return NodeResult.success;
+        //}
 
         if (Mathf.Abs(distance - DesiredDistance) <= ErrorTolerance)
         {

@@ -60,7 +60,12 @@ GameObject:
   - component: {fileID: 3411022642462321419}
   - component: {fileID: 5585229653409371759}
   - component: {fileID: 3793040443397090307}
-  - component: {fileID: 1135877629852082134}
+  - component: {fileID: 2952209115102170674}
+  - component: {fileID: 6375401675389741234}
+  - component: {fileID: 333613318359223053}
+  - component: {fileID: 284846502549192728}
+  - component: {fileID: 1423361059927551223}
+  - component: {fileID: 2183524560884698749}
   m_Layer: 0
   m_Name: Blackboard
   m_TagString: Untagged
@@ -113,6 +118,7 @@ MonoBehaviour:
   - {fileID: 3969814142439816967}
   - {fileID: 2954726009385352486}
   - {fileID: 662138807914295005}
+  - {fileID: 2183524560884698749}
   masterBlackboard: {fileID: 0}
 --- !u!114 &8031830758829094727
 MonoBehaviour:
@@ -198,16 +204,16 @@ MonoBehaviour:
   title: Selector
   rect:
     serializedVersion: 2
-    x: 800
+    x: 820
     y: 400
     width: 160
     height: 44
   parent: {fileID: 2226718836001649024}
   children:
+  - {fileID: 1423361059927551223}
   - {fileID: 5585229653409371759}
-  - {fileID: 2017210433740021885}
+  - {fileID: 284846502549192728}
   - {fileID: 5198372038984521912}
-  - {fileID: 0}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -227,13 +233,14 @@ MonoBehaviour:
   title: Combat Sequence
   rect:
     serializedVersion: 2
-    x: 700
-    y: 620
+    x: 780
+    y: 700
     width: 160
     height: 44
-  parent: {fileID: 6482843462991767990}
+  parent: {fileID: 284846502549192728}
   children:
   - {fileID: 5400790885298165236}
+  - {fileID: 333613318359223053}
   - {fileID: 6709909440505998670}
   - {fileID: 1339825191197124359}
   behaviourTree: {fileID: 0}
@@ -255,8 +262,8 @@ MonoBehaviour:
   title: Defense Sequence
   rect:
     serializedVersion: 2
-    x: 1000
-    y: 540
+    x: 1220
+    y: 560
     width: 160
     height: 44
   parent: {fileID: 6482843462991767990}
@@ -280,8 +287,8 @@ MonoBehaviour:
   title: Follow And Keep Distance From Target
   rect:
     serializedVersion: 2
-    x: 280
-    y: 660
+    x: 340
+    y: 780
     width: 160
     height: 59
   parent: {fileID: 0}
@@ -334,8 +341,8 @@ MonoBehaviour:
   title: Attack Target
   rect:
     serializedVersion: 2
-    x: 880
-    y: 760
+    x: 1060
+    y: 1020
     width: 160
     height: 44
   parent: {fileID: 1339825191197124359}
@@ -381,8 +388,8 @@ MonoBehaviour:
   title: Pawn Draw Sword
   rect:
     serializedVersion: 2
-    x: 540
-    y: 700
+    x: 420
+    y: 960
     width: 160
     height: 44
   parent: {fileID: 2017210433740021885}
@@ -407,8 +414,8 @@ MonoBehaviour:
   title: Face Towards Target
   rect:
     serializedVersion: 2
-    x: 700
-    y: 700
+    x: 840
+    y: 960
     width: 160
     height: 44
   parent: {fileID: 2017210433740021885}
@@ -428,6 +435,7 @@ MonoBehaviour:
     blackboard: {fileID: 5449071909062779123}
     key: SelfTransform
     constantValue: {fileID: 0}
+  RotationSpeed: 20
 --- !u!114 &662138807914295005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,8 +465,8 @@ MonoBehaviour:
   title: Cooldown
   rect:
     serializedVersion: 2
-    x: 880
-    y: 700
+    x: 1060
+    y: 960
     width: 160
     height: 44
   parent: {fileID: 2017210433740021885}
@@ -490,8 +498,8 @@ MonoBehaviour:
   title: Travel Sequence
   rect:
     serializedVersion: 2
-    x: 200
-    y: 580
+    x: 260
+    y: 700
     width: 160
     height: 44
   parent: {fileID: 5585229653409371759}
@@ -517,8 +525,8 @@ MonoBehaviour:
   title: Is Outside Range
   rect:
     serializedVersion: 2
-    x: 200
-    y: 520
+    x: 260
+    y: 640
     width: 160
     height: 44
   parent: {fileID: 6482843462991767990}
@@ -561,8 +569,8 @@ MonoBehaviour:
   title: Face Towards Target
   rect:
     serializedVersion: 2
-    x: 120
-    y: 660
+    x: 180
+    y: 780
     width: 160
     height: 44
   parent: {fileID: 3411022642462321419}
@@ -582,7 +590,48 @@ MonoBehaviour:
     blackboard: {fileID: 5449071909062779123}
     key: SelfTransform
     constantValue: {fileID: 0}
---- !u!114 &1135877629852082134
+  RotationSpeed: 10
+--- !u!114 &2952209115102170674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906434478778737171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a91c2a7d3a047e18526dd6c8438cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FollowAndDistanceFromTarget
+  title: Follow And Keep Distance From Target
+  rect:
+    serializedVersion: 2
+    x: 640
+    y: 1100
+    width: 160
+    height: 59
+  parent: {fileID: 6375401675389741234}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  Agent: {fileID: 8883415634566635027}
+  Animator: {fileID: 3445243663056705129}
+  TargetTransform:
+    useConstant: 0
+    mode: 0
+    blackboard: {fileID: 5449071909062779123}
+    key: FollowTransform
+    constantValue: {fileID: 0}
+  MaxMovementSpeed:
+    useConstant: 0
+    mode: 0
+    blackboard: {fileID: 5449071909062779123}
+    key: MaxMovementSpeed
+    constantValue: 0
+  DesiredDistance: 0.6
+  ErrorTolerance: 0.15
+--- !u!114 &6375401675389741234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -593,17 +642,17 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb0b7cfe3e9cfba47a378c725cf5d0b4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  title: Is Within Range
+  m_EditorClassIdentifier: Qriva.MonoBehaviourTree.Runtime::MBT.DistanceCondition
+  title: Distance Condition
   rect:
     serializedVersion: 2
-    x: 700
-    y: 540
+    x: 640
+    y: 1040
     width: 160
     height: 44
-  parent: {fileID: 6482843462991767990}
+  parent: {fileID: 333613318359223053}
   children:
-  - {fileID: 2017210433740021885}
+  - {fileID: 2952209115102170674}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -626,6 +675,143 @@ MonoBehaviour:
     blackboard: {fileID: 5449071909062779123}
     key: FollowTransform
     constantValue: {fileID: 0}
+--- !u!114 &333613318359223053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906434478778737171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c78c7da6b00e1b46bad07949050f82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Qriva.MonoBehaviourTree.Runtime::MBT.Sequence
+  title: Travel To Target Sequence
+  rect:
+    serializedVersion: 2
+    x: 640
+    y: 960
+    width: 160
+    height: 44
+  parent: {fileID: 2017210433740021885}
+  children:
+  - {fileID: 6375401675389741234}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  random: 0
+--- !u!114 &284846502549192728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906434478778737171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b95a918be8d9a4f9085201010bdec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Qriva.MonoBehaviourTree.Runtime::MBT.NumberCondition
+  title: Number Condition
+  rect:
+    serializedVersion: 2
+    x: 780
+    y: 640
+    width: 160
+    height: 44
+  parent: {fileID: 6482843462991767990}
+  children:
+  - {fileID: 2017210433740021885}
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  abort: 1
+  type: 0
+  floatReference:
+    useConstant: 0
+    mode: 1
+    blackboard: {fileID: 5449071909062779123}
+    key: TargetDistance
+    constantValue: 0
+  intReference:
+    useConstant: 0
+    mode: 1
+    blackboard: {fileID: 0}
+    key: 
+    constantValue: 0
+  comparator: 2
+  floatReference2:
+    useConstant: 1
+    mode: 0
+    blackboard: {fileID: 0}
+    key: 
+    constantValue: 2.6
+  intReference2:
+    useConstant: 1
+    mode: 0
+    blackboard: {fileID: 0}
+    key: 
+    constantValue: 0
+--- !u!114 &1423361059927551223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906434478778737171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2659d9740e09744b583d40f78bde8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Qriva.MonoBehaviourTree.Runtime::MBT.CalculateDistanceService
+  title: Calculate Distance Service
+  rect:
+    serializedVersion: 2
+    x: 100
+    y: 540
+    width: 160
+    height: 44
+  parent: {fileID: 6482843462991767990}
+  children: []
+  behaviourTree: {fileID: 0}
+  runtimePriority: 0
+  breakpoint: 0
+  interval: 1
+  randomDeviation: 0
+  callOnEnter: 1
+  transform1:
+    useConstant: 0
+    mode: 0
+    blackboard: {fileID: 5449071909062779123}
+    key: SelfTransform
+    constantValue: {fileID: 0}
+  transform2:
+    useConstant: 0
+    mode: 0
+    blackboard: {fileID: 5449071909062779123}
+    key: FollowTransform
+    constantValue: {fileID: 0}
+  variable:
+    useConstant: 0
+    mode: 1
+    blackboard: {fileID: 5449071909062779123}
+    key: TargetDistance
+    constantValue: 0
+--- !u!114 &2183524560884698749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906434478778737171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e5f4db414f0ab4c82c187a7653e99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Qriva.MonoBehaviourTree.Runtime::MBT.FloatVariable
+  key: TargetDistance
+  val: 0
 --- !u!1 &5666048243379173186
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,10 +860,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5666048243379173186}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -828,6 +1014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Blackboard: {fileID: 5449071909062779123}
+  ShowDebug: 1
 --- !u!1 &7421060619573885307
 GameObject:
   m_ObjectHideFlags: 0

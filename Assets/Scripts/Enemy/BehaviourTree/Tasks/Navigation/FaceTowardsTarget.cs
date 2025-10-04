@@ -9,6 +9,8 @@ public class FaceTowardsTarget : Leaf
     public TransformReference FollowTarget = new TransformReference();
     public TransformReference SelfTransform = new TransformReference();
 
+    public float RotationSpeed = 10f;
+
     public override NodeResult Execute()
     {
         var direction = FollowTarget.Value.position - transform.position;
@@ -20,7 +22,7 @@ public class FaceTowardsTarget : Leaf
             SelfTransform.Value.rotation = Quaternion.Slerp(
                 SelfTransform.Value.rotation,
                 targetRotation,
-                Time.deltaTime * 10f);
+                Time.deltaTime * RotationSpeed);
         }
 
         return NodeResult.success;
