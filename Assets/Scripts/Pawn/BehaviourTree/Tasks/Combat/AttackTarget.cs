@@ -1,4 +1,5 @@
 using MBT;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -40,7 +41,7 @@ public class AttackTarget : Leaf
 
             Animator.SetFloat(EnemyAnimationParams.MotionSpeed, _animationMotionSpeedBlendTime);
 
-            return NodeResult.running;
+            return NodeResult.success;
         }
 
         if (Mathf.Abs(distance - DesiredDistance) <= ErrorTolerance)

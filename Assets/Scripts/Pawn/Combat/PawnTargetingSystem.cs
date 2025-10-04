@@ -1,4 +1,6 @@
 using MBT;
+using TMPro.EditorUtilities;
+using UnityEditor;
 using UnityEngine;
 
 public interface ITargetingSystem
@@ -10,6 +12,7 @@ public class PawnTargetingSystem : MonoBehaviour, ITargetingSystem
 {
 
     public Blackboard Blackboard;
+    public bool ShowDebug;
 
     private TransformVariable FollowTargetVariable;
     private Transform _currentTarget;
@@ -29,5 +32,27 @@ public class PawnTargetingSystem : MonoBehaviour, ITargetingSystem
 
     private void Start()
         => FollowTargetVariable = Blackboard.GetVariable<TransformVariable>("FollowTransform");
+
+    public void OnDrawGizmos()
+    {
+        if (!ShowDebug) return;
+
+        if (_currentTarget == null)
+            return;
+
+        Vector3 from = this.transform.position;
+        Vector3 to = _currentTarget.position;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(from, to);
+
+        float distance = Vector3.Distance(from, to);
+        Vector3 midPoint = Vector3.Lerp(from, to, 0.5f);
+
+        #if UNITY_EDITOR
+        Handles.color = Color.white;
+        Handles.Label(midPoint, $"Distance: {distance:F2}");
+        #endif
+    }
 
 }
