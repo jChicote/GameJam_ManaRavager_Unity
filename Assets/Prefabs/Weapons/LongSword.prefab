@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 781816628319531024}
+  - component: {fileID: 6437173819616851004}
   m_Layer: 0
   m_Name: LongSword
   m_TagString: Untagged
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 3197874230571765042}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6437173819616851004
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4251376576939185673}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.22, y: 1, z: 0.09}
+  m_Center: {x: 0, y: 0.63, z: 0}
 --- !u!1001 &3164791208369613529
 PrefabInstance:
   m_ObjectHideFlags: 0

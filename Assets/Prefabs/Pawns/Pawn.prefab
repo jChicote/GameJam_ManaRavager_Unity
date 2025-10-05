@@ -381,7 +381,7 @@ MonoBehaviour:
   title: Pawn Draw Sword
   rect:
     serializedVersion: 2
-    x: 1160
+    x: 1200
     y: 820
     width: 160
     height: 44
@@ -407,7 +407,7 @@ MonoBehaviour:
   title: Face Towards Target
   rect:
     serializedVersion: 2
-    x: 1280
+    x: 1300
     y: 880
     width: 160
     height: 44
