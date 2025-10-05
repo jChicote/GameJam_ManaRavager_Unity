@@ -44,6 +44,7 @@ public class PlayerSwordHandler : MonoBehaviour
     public void EquipSword()
     {
         _currentSword = Instantiate(SwordAssetPrefab, CharacterSockets.SwordHolderSocket);
+        _currentSword.layer = GameLayers.Player;
     }
 
     public void ToggleSwordHandling()

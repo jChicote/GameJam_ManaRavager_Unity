@@ -20,6 +20,16 @@ public class PlayerHealthHandler : MonoBehaviour, ICharacterHealth, IDamageableH
         OnHealthChanged?.Invoke();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == GameLayers.Player) return;
+
+        if (other.gameObject.layer == GameLayers.Enemy
+            && other.gameObject.CompareTag(GameTags.HitBox))
+        {
+        }
+    }
+
     private void OnBecameVisible()
         => OnHealthChanged?.Invoke();
 
@@ -28,4 +38,5 @@ public class PlayerHealthHandler : MonoBehaviour, ICharacterHealth, IDamageableH
         _currentHealth -= damageAmount;
         OnHealthChanged?.Invoke();
     }
+
 }

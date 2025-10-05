@@ -49,6 +49,7 @@ public class PawnSwordHandler : MonoBehaviour
     public void EquipSword()
     {
         _currentSword = Instantiate(SwordAssetPrefab, CharacterSockets.SwordHolderSocket);
+        _currentSword.layer = this.gameObject.layer;
     }
 
     public void DrawSword()
