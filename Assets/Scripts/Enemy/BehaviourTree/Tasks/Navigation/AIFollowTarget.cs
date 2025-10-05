@@ -10,7 +10,7 @@ public class AIFollowTarget : Leaf
     [Header("References")]
     public NavMeshAgent Agent;
     public Animator Animator;
-    public TransformReference FollowTarget = new TransformReference();
+    public TransformReference FollowTarget = new();
 
     private float _animationMotionSpeedBlendTime;
     private float _maxSpeed;
@@ -26,7 +26,7 @@ public class AIFollowTarget : Leaf
 
         _animationMotionSpeedBlendTime = Mathf.Lerp(
             _animationMotionSpeedBlendTime,
-            speed /_maxSpeed,
+            speed / _maxSpeed,
             Time.deltaTime * 10f);
 
         Animator.SetFloat(EnemyAnimationParams.MotionSpeed, _animationMotionSpeedBlendTime);

@@ -7,12 +7,14 @@ public class DrawShield : Leaf
 {
 
     public Animator Animator;
+    public PawnShieldHandler ShieldHandler;
 
     public override NodeResult Execute()
     {
         if (Animator.GetBool(EnemyAnimationParams.IsShieldDrawn))
             return NodeResult.success;
 
+        ShieldHandler.DrawShield();
         return NodeResult.success;
     }
 

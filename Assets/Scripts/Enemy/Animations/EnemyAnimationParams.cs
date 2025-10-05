@@ -18,5 +18,6 @@ public class EnemyAnimationParams
     public static readonly int Summon = Animator.StringToHash("Summon");
     public static readonly int Block = Animator.StringToHash("Block");
     public static readonly int ManaPush = Animator.StringToHash("ManaPush");
+    public static readonly int Hit = Animator.StringToHash("Hit");
 
 }

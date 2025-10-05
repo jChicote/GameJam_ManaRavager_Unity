@@ -3,7 +3,7 @@ public class DebugCommandConfigurator
 
     #region - - - - - - Fields - - - - - -
 
-    private DebugManager m_DebugManager;
+    private readonly DebugManager m_DebugManager;
 
     #endregion Fields
 
@@ -19,6 +19,7 @@ public class DebugCommandConfigurator
     public void ConfigureCommands()
     {
         new Debug_PlayerMetricRandomizer().RegisterCommand(m_DebugManager);
+        new Debug_PawnHealthSystem().RegisterCommand(m_DebugManager);
     }
 
     #endregion Methods
