@@ -2,11 +2,9 @@ using MBT;
 using System;
 using UnityEngine;
 
-public class PawnHealthSystem : MonoBehaviour, ICharacterHealth, IDamageableHandler
+public class PawnHealthSystem : MonoBehaviour, ICharacterHealth
 {
 
-    public Animator Animator;
-    public PawnShieldHandler ShieldHandler;
     public Blackboard BlackBoard;
     public float MaxHealth = 100f;
 
@@ -44,14 +42,7 @@ public class PawnHealthSystem : MonoBehaviour, ICharacterHealth, IDamageableHand
 
     public void AddDamage(float damageAmount)
     {
-        if (ShieldHandler.IsShielding)
-        {
-            ShieldHandler.TriggerShieldImpact();
-            return;
-        }
-
         CurrentHealth -= damageAmount;
-
         _isAttackedBlackboardVariable.Value = true;
     }
 }

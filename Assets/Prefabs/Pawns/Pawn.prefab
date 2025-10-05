@@ -74,7 +74,6 @@ GameObject:
   - component: {fileID: 3491526243208120474}
   - component: {fileID: 5330511301533847805}
   - component: {fileID: 5121100607109321220}
-  - component: {fileID: 181153801773908567}
   - component: {fileID: 1370552670379989017}
   - component: {fileID: 8743899742878848955}
   - component: {fileID: 1666378506592034305}
@@ -230,6 +229,7 @@ MonoBehaviour:
   children:
   - {fileID: 1423361059927551223}
   - {fileID: 5585229653409371759}
+  - {fileID: 784052366287335886}
   - {fileID: 284846502549192728}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
@@ -250,8 +250,8 @@ MonoBehaviour:
   title: Defense Sequence
   rect:
     serializedVersion: 2
-    x: 720
-    y: 1000
+    x: 800
+    y: 880
     width: 160
     height: 44
   parent: {fileID: 1652119032817457863}
@@ -280,8 +280,8 @@ MonoBehaviour:
   title: Follow And Keep Distance From Target
   rect:
     serializedVersion: 2
-    x: 480
-    y: 740
+    x: 580
+    y: 760
     width: 160
     height: 59
   parent: {fileID: 0}
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: MaxMovementSpeed
-  val: 2
+  val: 2.5
 --- !u!114 &5737805368979232021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,8 +334,8 @@ MonoBehaviour:
   title: Attack Target
   rect:
     serializedVersion: 2
-    x: 1857
-    y: 1111
+    x: 1680
+    y: 880
     width: 160
     height: 44
   parent: {fileID: 1339825191197124359}
@@ -381,8 +381,8 @@ MonoBehaviour:
   title: Pawn Draw Sword
   rect:
     serializedVersion: 2
-    x: 1337
-    y: 1051
+    x: 1160
+    y: 820
     width: 160
     height: 44
   parent: {fileID: 1674428295878725752}
@@ -407,8 +407,8 @@ MonoBehaviour:
   title: Face Towards Target
   rect:
     serializedVersion: 2
-    x: 1477
-    y: 1111
+    x: 1280
+    y: 880
     width: 160
     height: 44
   parent: {fileID: 333613318359223053}
@@ -458,8 +458,8 @@ MonoBehaviour:
   title: Cooldown
   rect:
     serializedVersion: 2
-    x: 1857
-    y: 1051
+    x: 1680
+    y: 820
     width: 160
     height: 44
   parent: {fileID: 1674428295878725752}
@@ -491,8 +491,8 @@ MonoBehaviour:
   title: Travel Sequence
   rect:
     serializedVersion: 2
-    x: 400
-    y: 660
+    x: 500
+    y: 680
     width: 160
     height: 44
   parent: {fileID: 5585229653409371759}
@@ -518,8 +518,8 @@ MonoBehaviour:
   title: Is Outside Range
   rect:
     serializedVersion: 2
-    x: 400
-    y: 600
+    x: 500
+    y: 620
     width: 160
     height: 44
   parent: {fileID: 6482843462991767990}
@@ -562,8 +562,8 @@ MonoBehaviour:
   title: Face Towards Target
   rect:
     serializedVersion: 2
-    x: 320
-    y: 740
+    x: 420
+    y: 760
     width: 160
     height: 44
   parent: {fileID: 3411022642462321419}
@@ -599,8 +599,8 @@ MonoBehaviour:
   title: Follow And Keep Distance From Target
   rect:
     serializedVersion: 2
-    x: 1657
-    y: 1111
+    x: 1480
+    y: 880
     width: 160
     height: 59
   parent: {fileID: 333613318359223053}
@@ -622,7 +622,7 @@ MonoBehaviour:
     blackboard: {fileID: 5449071909062779123}
     key: MaxMovementSpeed
     constantValue: 0
-  DesiredDistance: 0.6
+  DesiredDistance: 1
   ErrorTolerance: 0.15
 --- !u!114 &333613318359223053
 MonoBehaviour:
@@ -639,8 +639,8 @@ MonoBehaviour:
   title: Travel To Target Sequence
   rect:
     serializedVersion: 2
-    x: 1577
-    y: 1051
+    x: 1400
+    y: 820
     width: 160
     height: 44
   parent: {fileID: 1674428295878725752}
@@ -666,13 +666,13 @@ MonoBehaviour:
   title: Number Condition
   rect:
     serializedVersion: 2
-    x: 1160
+    x: 1400
     y: 600
     width: 160
     height: 44
   parent: {fileID: 6482843462991767990}
   children:
-  - {fileID: 181153801773908567}
+  - {fileID: 9166275902071109260}
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
@@ -719,7 +719,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 200
-    y: 520
+    y: 540
     width: 160
     height: 44
   parent: {fileID: 6482843462991767990}
@@ -791,8 +791,8 @@ MonoBehaviour:
   title: Is Shield Broken
   rect:
     serializedVersion: 2
-    x: 720
-    y: 940
+    x: 800
+    y: 820
     width: 160
     height: 44
   parent: {fileID: 784052366287335886}
@@ -843,8 +843,8 @@ MonoBehaviour:
   title: Attack Sequence
   rect:
     serializedVersion: 2
-    x: 1577
-    y: 951
+    x: 1400
+    y: 720
     width: 160
     height: 44
   parent: {fileID: 9166275902071109260}
@@ -913,11 +913,11 @@ MonoBehaviour:
   title: Has Been Attacked
   rect:
     serializedVersion: 2
-    x: 720
-    y: 880
+    x: 800
+    y: 760
     width: 160
     height: 44
-  parent: {fileID: 181153801773908567}
+  parent: {fileID: 6482843462991767990}
   children:
   - {fileID: 1652119032817457863}
   behaviourTree: {fileID: 0}
@@ -959,8 +959,8 @@ MonoBehaviour:
   title: Pawn Draw Shield
   rect:
     serializedVersion: 2
-    x: 520
-    y: 1100
+    x: 680
+    y: 1020
     width: 160
     height: 44
   parent: {fileID: 5198372038984521912}
@@ -985,8 +985,8 @@ MonoBehaviour:
   title: Wait And Face Target
   rect:
     serializedVersion: 2
-    x: 720
-    y: 1100
+    x: 800
+    y: 1080
     width: 160
     height: 44
   parent: {fileID: 5198372038984521912}
@@ -1020,11 +1020,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a491dc0bc41ade74e85756aea423797c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Qriva.MonoBehaviourTree.Runtime::MBT.SetBoolean
-  title: Set Boolean
+  title: Set Attacked to False
   rect:
     serializedVersion: 2
-    x: 880
-    y: 1100
+    x: 920
+    y: 1020
     width: 160
     height: 44
   parent: {fileID: 5198372038984521912}
@@ -1044,33 +1044,6 @@ MonoBehaviour:
     blackboard: {fileID: 5449071909062779123}
     key: IsAttacked
     constantValue: 0
---- !u!114 &181153801773908567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4906434478778737171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08540605df275034fafc8e05c6704214, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Qriva.MonoBehaviourTree.Runtime::MBT.Selector
-  title: Selector
-  rect:
-    serializedVersion: 2
-    x: 1160
-    y: 700
-    width: 160
-    height: 44
-  parent: {fileID: 284846502549192728}
-  children:
-  - {fileID: 784052366287335886}
-  - {fileID: 9166275902071109260}
-  behaviourTree: {fileID: 0}
-  runtimePriority: 0
-  breakpoint: 0
-  random: 0
 --- !u!114 &1370552670379989017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1097,11 +1070,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a491dc0bc41ade74e85756aea423797c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Qriva.MonoBehaviourTree.Runtime::MBT.SetBoolean
-  title: Set Boolean
+  title: Set Shielding to True
   rect:
     serializedVersion: 2
-    x: 360
-    y: 1100
+    x: 580
+    y: 960
     width: 160
     height: 44
   parent: {fileID: 5198372038984521912}
@@ -1133,11 +1106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a491dc0bc41ade74e85756aea423797c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Qriva.MonoBehaviourTree.Runtime::MBT.SetBoolean
-  title: Set Boolean
+  title: Set Shielding to False
   rect:
     serializedVersion: 2
-    x: 1080
-    y: 1100
+    x: 1040
+    y: 960
     width: 160
     height: 44
   parent: {fileID: 5198372038984521912}
@@ -1169,14 +1142,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534e3ec7de6cd444e984c2e7f68e42e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Qriva.MonoBehaviourTree.Runtime::MBT.IsSetCondition
-  title: Is Set Condition
+  title: Is Not Shielding
   rect:
     serializedVersion: 2
-    x: 1580
-    y: 900
+    x: 1400
+    y: 640
     width: 160
     height: 44
-  parent: {fileID: 181153801773908567}
+  parent: {fileID: 284846502549192728}
   children:
   - {fileID: 1674428295878725752}
   behaviourTree: {fileID: 0}
@@ -1214,7 +1187,6 @@ GameObject:
   - component: {fileID: 1309350226064657036}
   - component: {fileID: 2814241459448983414}
   - component: {fileID: 3445243663056705129}
-  - component: {fileID: 2972085150217577779}
   - component: {fileID: 5961525370381785859}
   - component: {fileID: 8883415634566635027}
   - component: {fileID: 7939288802441484848}
@@ -1222,6 +1194,7 @@ GameObject:
   - component: {fileID: 6105760164944646007}
   - component: {fileID: 3783263112182776291}
   - component: {fileID: 821655772602995361}
+  - component: {fileID: 6266651821105022559}
   m_Layer: 8
   m_Name: Pawn
   m_TagString: Untagged
@@ -1295,29 +1268,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!136 &2972085150217577779
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5666048243379173186}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.38
-  m_Height: 1.35
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.72, z: 0}
 --- !u!143 &5961525370381785859
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1422,7 +1372,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PawnShieldHandler
   PawnAnimator: {fileID: 3445243663056705129}
   BlackBoard: {fileID: 5449071909062779123}
-  HealthSystem: {fileID: 821655772602995361}
   MaxShieldHits: 0
 --- !u!114 &821655772602995361
 MonoBehaviour:
@@ -1436,10 +1385,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d273e50c006b64a4aaf8da02c10b41a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PawnHealthSystem
-  Animator: {fileID: 3445243663056705129}
-  ShieldHandler: {fileID: 3783263112182776291}
   BlackBoard: {fileID: 5449071909062779123}
   MaxHealth: 100
+--- !u!114 &6266651821105022559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5666048243379173186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0189570902dc5664a975040ad74ffa23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PawnDamageHandler
+  HealthSystem: {fileID: 821655772602995361}
+  ShieldHandler: {fileID: 3783263112182776291}
 --- !u!1 &7421060619573885307
 GameObject:
   m_ObjectHideFlags: 0

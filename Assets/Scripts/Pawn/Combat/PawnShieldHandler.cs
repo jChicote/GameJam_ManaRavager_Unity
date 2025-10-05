@@ -6,7 +6,6 @@ public class PawnShieldHandler : MonoBehaviour
 
     public Animator PawnAnimator;
     public Blackboard BlackBoard;
-    public PawnHealthSystem HealthSystem;
     public int MaxShieldHits;
 
     private IntVariable _shieldHealthBlackBoardVariable;
@@ -16,11 +15,7 @@ public class PawnShieldHandler : MonoBehaviour
     public bool IsShielding => _isShieldDrawn;
 
     private void Start()
-    {
-        _shieldHealthBlackBoardVariable = BlackBoard.GetVariable<IntVariable>("ShieldHits");
-
-        //HealthSystem.OnHealthChanged += this.TriggerShieldImpact;
-    }
+        => _shieldHealthBlackBoardVariable = BlackBoard.GetVariable<IntVariable>("ShieldHits");
 
     public void AnimationEvent_EngageShield()
     {
