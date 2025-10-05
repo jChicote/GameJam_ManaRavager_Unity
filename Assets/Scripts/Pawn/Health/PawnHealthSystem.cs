@@ -2,10 +2,11 @@ using MBT;
 using System;
 using UnityEngine;
 
-public class PawnHealthSystem : MonoBehaviour, ICharacterHealth
+public class PawnHealthSystem : MonoBehaviour, ICharacterHealth, ICharacterHealthMarkerPoint
 {
 
     public Blackboard BlackBoard;
+    public Transform HealthMarkerPoint;
     public float MaxHealth = 100f;
 
     private FloatVariable _currentHealthBlackBoardVariable;
@@ -27,6 +28,8 @@ public class PawnHealthSystem : MonoBehaviour, ICharacterHealth
         }
     }
 
+    public Vector3 MarkerPosition => HealthMarkerPoint.position;
+
     float ICharacterHealth.MaxHealth => MaxHealth;
 
     private void Start()
@@ -38,6 +41,16 @@ public class PawnHealthSystem : MonoBehaviour, ICharacterHealth
         CurrentHealth = MaxHealth;
         _currentHealthBlackBoardVariable.Value = CurrentHealth;
         _maxHealthBlackBoardVariable.Value = MaxHealth;
+
+        // Add its own UI health bar
+        var eventHub = GameManager.Instance.UIEventHub;
+        var request = new CreateEnemyHealthBarRequest
+        {
+            Identifier = this.gameObject.GetInstanceID(),
+            EnemyHealth = this,
+            EnemyMarkerPoint = this
+        };
+        eventHub.TriggerEvent(EnemyHealthBarsGUIActions.AddEnemyHealthBar, request);
     }
 
     public void AddDamage(float damageAmount)
@@ -45,4 +58,5 @@ public class PawnHealthSystem : MonoBehaviour, ICharacterHealth
         CurrentHealth -= damageAmount;
         _isAttackedBlackboardVariable.Value = true;
     }
+
 }

@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public GameMetrics GameMetrics;
+    public UIEventHub UIEventHub;
 
     private void Awake()
     {

@@ -20,12 +20,16 @@ public class EnemyHealthBarsView : MonoBehaviour
         _enemyHealthBars.Add(identifier, healthBar);
 
         healthBar.SetHealth(currentHealth, maxHealth);
+        healthBar.RectTransform.position = new Vector3(-1000, -1000, 0); // Start off-screen
     }
 
-    public void UpdateEnemyHealthBar(int identifier, float currentHealth, float maxHealth)
+    public void UpdateEnemyHealthBar(int identifier, float currentHealth, float maxHealth, Vector3 worldMarkerPosition)
     {
         if (!_enemyHealthBars.TryGetValue(identifier, out var healthBar)) return;
         healthBar.SetHealth(currentHealth, maxHealth);
+
+        var screenPosition = Camera.main.WorldToScreenPoint(worldMarkerPosition);
+        healthBar.RectTransform.position = screenPosition;
     }
 
     public void RemoveEnemyHealthBar(int identifier)

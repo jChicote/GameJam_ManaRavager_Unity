@@ -32,6 +32,37 @@ Transform:
   - {fileID: 362966956459370825}
   m_Father: {fileID: 8354112984747480638}
   m_LocalEulerAnglesHint: {x: -177.51, y: 87.924, z: -50.169983}
+--- !u!1 &3686428717589072703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7272999241597248233}
+  m_Layer: 8
+  m_Name: HealthMarkerPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7272999241597248233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3686428717589072703}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.288, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1309350226064657036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4906434478778737171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,6 +1248,7 @@ Transform:
   m_Children:
   - {fileID: 8978245464707346931}
   - {fileID: 5154036906406654557}
+  - {fileID: 7272999241597248233}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2814241459448983414
@@ -1386,6 +1418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PawnHealthSystem
   BlackBoard: {fileID: 5449071909062779123}
+  HealthMarkerPoint: {fileID: 7272999241597248233}
   MaxHealth: 100
 --- !u!114 &6266651821105022559
 MonoBehaviour:
