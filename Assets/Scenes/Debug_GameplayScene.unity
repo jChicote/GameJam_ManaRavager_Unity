@@ -688,6 +688,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2639707843403835218, guid: 446cdee023e556d4288ffecf9d5c2cd4, type: 3}
   m_PrefabInstance: {fileID: 9171137855898110847}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &744323498 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8072123686018578165, guid: 446cdee023e556d4288ffecf9d5c2cd4, type: 3}
+  m_PrefabInstance: {fileID: 9171137855898110847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &759362355
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,7 +937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: FollowTarget
-  val: {fileID: 1272041199}
+  val: {fileID: 744323498}
 --- !u!114 &841352448
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -970,7 +975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25af8627659c6949b60949c3aa8d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEditorNode: {fileID: 841352471}
+  selectedEditorNode: {fileID: 841352475}
   repeatOnFinish: 1
   maxExecutionsPerTick: 1000
   parent: {fileID: 0}
@@ -3628,25 +3633,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3832557690852069200, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3969814142439816967, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
       propertyPath: val
       value: 
-      objectReference: {fileID: 1272041199}
+      objectReference: {fileID: 744323498}
     - target: {fileID: 5666048243379173186, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
       propertyPath: m_Name
       value: Pawn
       objectReference: {fileID: 0}
-    - target: {fileID: 5666048243379173186, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3832557690852069200, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfbca5a24ce99c744ae803dacc59b562, type: 3}
